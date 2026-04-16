@@ -32,23 +32,36 @@ Edit `requirements.md` with your property details (rent amount, address, etc.)
 ### 2. Collect applicant documents
 
 Ask the applicant to fill out `templates/application-questionnaire.md`
-and submit:
+and save their submitted files into a numbered folder:
 
-- Bank statements (last 2–3 months)
-- Credit report
-- Pay stubs (last 2–3 months)
-- Tax returns (last 2 years)
+```
+applicants/
+└── 01/          ← place all documents for applicant group 1 here
+    ├── bank-statement-jan.pdf
+    ├── credit-report.pdf
+    ├── pay-stubs.pdf
+    └── ...
+```
+
+Supported file types: PDF, images, text, markdown — anything the applicant submits.
 
 ### 3. Run the screening in Claude Code
 
+**Option A — type directly in Claude Code:**
+
+> "Screen applicant 01"
+
+Claude Code will automatically read all files in `applicants/01/` and
+run the screening skill. No need to attach files manually.
+
+**Option B — use the helper script:**
+
 ```bash
-bash scripts/screen_tenant.sh
+bash scripts/screen_tenant.sh 01
 ```
 
-Or manually in Claude Code:
-
-> "Please screen this tenant using the tenant-screening skill.
-> Monthly rent is $2,500. Here are their documents: [attach PDFs]"
+This prints a ready-made prompt and confirms how many documents were found
+in the folder.
 
 ### 4. Review the report
 
