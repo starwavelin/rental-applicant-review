@@ -25,11 +25,15 @@ nyc-tenant-screening/
 
 ## 🚀 How to Use
 
-### 1. Set your requirements
+### 1. Ensure Claude Code access
+
+Ensure you have Claude Code access from your local machine.
+
+### 2. Set your requirements
 
 Edit `requirements.md` with your property details (rent amount, address, etc.)
 
-### 2. Collect applicant documents
+### 3. Collect applicant documents
 
 Ask the applicant to fill out `templates/application-questionnaire.md`
 and save their submitted files into a numbered folder:
@@ -45,7 +49,7 @@ applicants/
 
 Supported file types: PDF, images, text, markdown — anything the applicant submits.
 
-### 3. Run the screening in Claude Code
+### 4. Run the screening in Claude Code
 
 **Option A — type directly in Claude Code:**
 
@@ -63,7 +67,7 @@ bash scripts/screen_tenant.sh 01
 This prints a ready-made prompt and confirms how many documents were found
 in the folder.
 
-### 4. Review the report
+### 5. Review the report
 
 Claude will output a structured report with a clear recommendation:
 
@@ -72,7 +76,7 @@ Claude will output a structured report with a clear recommendation:
 - 🚩 DECLINE
 - ❓ NEED MORE INFO
 
-### 5. Send the appropriate letter
+### 6. Send the appropriate letter
 
 Use `templates/approval-letter.md` or `templates/rejection-letter.md`
 
